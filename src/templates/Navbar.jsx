@@ -7,15 +7,16 @@ import axios from '../../src/utils/axios';
 
 const Navbar = () => {
 
-  const [query, setquery] = useState(" ")
+  const [query, setquery] = useState("")
 
   const [searches, setsearches] = useState([])
 
   const getquery = async () => {
-    if (!query.trim()) return;
     try {
-      const { data } = await axios.get(`/search/multi?query=${query}`);
+      const {data} = await axios.get(`/search/multi?query=${query}`);
       setsearches(data.results)
+      console.log(data.results);
+
     } catch (error) {
       console.log("Error :", error.response || error);
     }
@@ -27,23 +28,29 @@ const Navbar = () => {
 
 
   return (
-    <div className=' p-6 w-full relative'>
+    <div className=' p-6 w-[60%] relative'>
       <nav className='gap-5 w-full flex  items-center justify-center'>
-        <CiSearch className='text-white/70 text-xl' />
+        <CiSearch className='text-white/70 text-2xl' />
         <input type="text" className='p-5 w-[55%] border-none outline-none text-xl text-white/90 font-extrabold
           'value={query}
           placeholder='search anything'
           onChange={(e) => setquery(e.target.value)}
         />
         {query.length > 0 && <RxCross2 className='text-white/70 cursor-pointer  text-2xl ' onClick={() => setquery("")} />}
-        <div className='w-[50%] max-h-[25rem]  bg-zinc-200  absolute top-[90%] overflow-auto '>
-          {searches.map(function (val, idx) {
+        <div className='w-[60%] max-h-[25rem]  bg-zinc-200  absolute top-[90%] overflow-auto rounded-2xl '>
 
-            <Link className=' w-full flex border-b-2 border-zinc-100  items-start p-7  font-semibold text-black/20 hover:text-black hover:bg-zinc-300 duration-100'>
-              <img src="" alt="" />
-              <span>Hello Eveyone</span>
+          {searches.map((val, idx) => {
+
+            return <Link
+              key={idx}
+              className='w-full flex border-b-2 border-zinc-100 items-start p-7 font-semibold text-black/60 hover:text-black hover:bg-zinc-300 duration-100 gap-5 font-semibold'
+            >
+              <img src={`https://image.tmdb.org/t/p/original/${val.backdrop_path || val.profile_path}` } alt="" className='h-20 w-50 object-cover rounded' />
+              <span>{val.title || val.original_name || val.original.title || val.name}</span>
             </Link>
+
           })}
+
         </div>
       </nav>
     </div>
