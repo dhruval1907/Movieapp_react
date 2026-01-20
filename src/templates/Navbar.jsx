@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const [query, setquery] = useState("")
 
-  console.log(query);
+  // console.log(query);
 
 
   return (
@@ -20,8 +20,8 @@ const Navbar = () => {
           placeholder='search anything'
           onChange={(e) => setquery(e.target.value)}
         />
-        {query.length > 0 && <RxCross2 className=  'text-white/70 cursor-pointer  text-2xl ' onClick={()=>setquery("")} />}
-        <div className='w-[50%] max-h-[25rem]  bg-zinc-200  absolute top-[90%] overflow-auto '> 
+        {query.length > 0 && <RxCross2 className='text-white/70 cursor-pointer  text-2xl ' onClick={() => setquery("")} />}
+        <div className='w-[50%] max-h-[25rem]  bg-zinc-200  absolute top-[90%] overflow-auto '>
           {/* <Link className=' w-full flex border-b-2 border-zinc-100  items-start p-7  font-semibold text-black/20 hover:text-black hover:bg-zinc-300 duration-100'>
             <img src="" alt="" />
             <span>Hello Eveyone</span>
