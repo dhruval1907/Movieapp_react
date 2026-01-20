@@ -16,7 +16,7 @@ const Sidebar = () => {
             </h1>
             <nav className='flex flex-col gap-3'>
                 <h1 className='mt-10 mb-5 text-white text-xl font-semibold'>New Feeds</h1>
-                <Link className='text-white/70 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><i class="ri-fire-fill text-xl"></i> Trending</Link>
+                <Link className='text-white/70 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><i className="ri-fire-fill text-xl"></i> Trending</Link>
                 <Link className='text-white/70 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><GiTriceratopsHead className='text-xl'></GiTriceratopsHead> Popular</Link>
                 <Link className='text-white/70 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><RiMovie2AiFill className='text-xl'></RiMovie2AiFill> Movies</Link>
                 <Link className='text-white/70 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><BiSlideshow className='text-xl'></BiSlideshow> Tv Shows</Link>

@@ -1,14 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
+import axios from '../../src/utils/axios';
 
 const Navbar = () => {
 
-  const [query, setquery] = useState("")
+  const [query, setquery] = useState(" ")
 
-  // console.log(query);
+  const [searches, setsearches] = useState([])
+
+  const getquery = async () => {
+    if (!query.trim()) return;
+    try {
+      const { data } = await axios.get(`/search/multi?query=${query}`);
+      setsearches(data.results)
+    } catch (error) {
+      console.log("Error :", error.response || error);
+    }
+  };
+
+  useEffect(function () {
+    getquery()
+  }, [query])
 
 
   return (
@@ -22,10 +37,13 @@ const Navbar = () => {
         />
         {query.length > 0 && <RxCross2 className='text-white/70 cursor-pointer  text-2xl ' onClick={() => setquery("")} />}
         <div className='w-[50%] max-h-[25rem]  bg-zinc-200  absolute top-[90%] overflow-auto '>
-          {/* <Link className=' w-full flex border-b-2 border-zinc-100  items-start p-7  font-semibold text-black/20 hover:text-black hover:bg-zinc-300 duration-100'>
-            <img src="" alt="" />
-            <span>Hello Eveyone</span>
-          </Link> */}
+          {searches.map(function (val, idx) {
+
+            <Link className=' w-full flex border-b-2 border-zinc-100  items-start p-7  font-semibold text-black/20 hover:text-black hover:bg-zinc-300 duration-100'>
+              <img src="" alt="" />
+              <span>Hello Eveyone</span>
+            </Link>
+          })}
         </div>
       </nav>
     </div>
