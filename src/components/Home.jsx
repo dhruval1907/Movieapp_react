@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../templates/Sidebar';
 import Navbar from '../templates/Navbar';
 import axios from '../utils/axios';
+import Header from '../templates/Header';
 
 const Home = () => {
     document.title = "DCSMP | Home";
@@ -25,11 +26,12 @@ const Home = () => {
   })
 
 
-    return (
+    return   (
         <>
         <Sidebar/>
             <div className='h-full w-[80%] '>
                 <Navbar/>
+                <Header data={wallpepar}/>
             </div>
         </>
     )
