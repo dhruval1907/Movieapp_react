@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const getquery = async () => {
     try {
-      const {data} = await axios.get(`/search/multi?query=${query}`);
+      const { data } = await axios.get(`/search/multi?query=${query}`);
       setsearches(data.results)
       // console.log(data.results);
 
@@ -30,7 +30,7 @@ const Navbar = () => {
 
 
   return (
-    <div className=' p-6 w-[60%] relative'>
+    <div className=' p-6 w-[80%] relative z-[2]'>
       <nav className='gap-5 w-full flex  items-center justify-center'>
         <CiSearch className='text-white/70 text-2xl' />
         <input type="text" className='p-5 w-[55%] border-none outline-none text-xl text-white/90 font-extrabold
@@ -47,7 +47,7 @@ const Navbar = () => {
               key={idx}
               className='w-full flex border-b-2 border-zinc-100 items-start p-7 font-semibold text-black/60 hover:text-black hover:bg-zinc-300 duration-100 gap-5 font-semibold'
             >
-              <img src={val.backdrop_path || val.profile_path ?` https://image.tmdb.org/t/p/original/${val.backdrop_path || val.profile_path} ` : noimages } alt="" className='h-[10vh] w-[10vh] object-cover rounded shadow-xl' />
+              <img src={val.backdrop_path || val.profile_path ? ` https://image.tmdb.org/t/p/original/${val.backdrop_path || val.profile_path} ` : noimages} alt="" className='h-[10vh] w-[10vh] object-cover rounded shadow-xl' />
               <span className='text-medium'>{val.title || val.original_name || val.original.title || val.name}</span>
             </Link>
 

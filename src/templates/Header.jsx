@@ -17,10 +17,11 @@ const Header = ({ data }) => {
                 backgroundPosition: "top",
                 backgroundRepeat: "no-repeat",
             }}
-            className="w-[90%] mx-auto h-[50vh] rounded flex flex-col justify-end p-10"
+            className="w-[100%] mx-auto h-[55vh] rounded flex flex-col justify-end px-15 py-15 gap-2 items-start"
         >
             <h1 className='text-white font-black text-5xl  '>Devil & me</h1>
             <p className='text-white w-[60%] mt-2 text-lg'>In a world where shadows speak louder than words, a man stands face to face with his darkest truth. The devil is not a creature of horns and fire, but a reflection—silent, powerful, and always watching<Link className='text-blue-300'> ... more</Link> </p> 
+            <Link className='text-black font-semibold p-4 bg-[#6556CD] rounded'>Watch trailer</Link>
         </div>
     );
 };
