@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import axios from '../../src/utils/axios';
 
+import noimages from "../../public/noimage.webp";
+
 const Navbar = () => {
 
   const [query, setquery] = useState("")
@@ -45,8 +47,8 @@ const Navbar = () => {
               key={idx}
               className='w-full flex border-b-2 border-zinc-100 items-start p-7 font-semibold text-black/60 hover:text-black hover:bg-zinc-300 duration-100 gap-5 font-semibold'
             >
-              <img src={`https://image.tmdb.org/t/p/original/${val.backdrop_path || val.profile_path}` } alt="" className='h-20 w-50 object-cover rounded' />
-              <span>{val.title || val.original_name || val.original.title || val.name}</span>
+              <img src={val.backdrop_path || val.profile_path ?` https://image.tmdb.org/t/p/original/${val.backdrop_path || val.profile_path} ` : noimages } alt="" className='h-[10vh] w-[10vh] object-cover rounded shadow-xl' />
+              <span className='text-medium'>{val.title || val.original_name || val.original.title || val.name}</span>
             </Link>
 
           })}
