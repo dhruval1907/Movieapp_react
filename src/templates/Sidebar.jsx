@@ -22,9 +22,10 @@ const Sidebar = () => {
                 <Link className='text-white/70 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><BiSlideshow className='text-xl'></BiSlideshow> Tv Shows</Link>
                 <Link className='text-white/70 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><MdTheaterComedy className='text-xl'></MdTheaterComedy> People</Link>
             </nav>
-            <hr className='text-white/30 h-[1px]' />
+            <hr className='text-white/30 h-[px]' />
             <nav className='flex flex-col gap-3 '>
-                <Link className='text-white/70 mt-7 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><AiFillInfoCircle></AiFillInfoCircle> About</Link>
+                <h1 className='mt-5 text-white text-xl font-semibold'>Website Info.</h1>
+                <Link className='text-white/70 mt-3 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><AiFillInfoCircle></AiFillInfoCircle> About DCSMP</Link>
                 <Link className='text-white/70 text-xl p-5 duration-150 hover:text-white  hover:bg-[#6556CD] rounded-lg flex gap-3 items-center'><MdContactEmergency className='text-xl'></MdContactEmergency> Contact Us</Link>
 
             </nav>
